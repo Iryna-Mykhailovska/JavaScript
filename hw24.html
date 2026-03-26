@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.webp">
+    <title>JavaScript in BEETROOT</title>
+    <!-- 1 In Head (лічильник) -->
+    <!-- <script src="./js/main.js"></script> -->
+     <script src="./js/counter.js" defer></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container container">
+            <div class="header__body">
+                <a href="./index.html" class="header__logo logo">
+                    <svg width="45" height="35" class="logo__icon">
+                        <use xlink:href="./assets/img/svg/sprite.svg#icon-logo"></use>
+                    </svg>
+                </a>
+                <nav class="header__nav nav">
+                    <input type="checkbox" id="nav-burger" class="nav__burger burger">
+                    <label for="nav-burger" class="burger__img"></label>
+                    <ul class="header__menu menu">
+                        <li class="menu__item"><a href="#" class="menu__link">Основи JavaScript</a></li>
+                        <li class="menu__item"><a href="#" class="menu__link">Типи даних та оператори</a></li>
+                        <li class="menu__item"><a href="#" class="menu__link">Цикли й умови</a></li>
+                        <li class="menu__item"><a href="#" class="menu__link">Функції</a></li>
+                        <li class="menu__item"><a href="#" class="menu__link">Об'єкти</a></li>
+                        <li class="menu__item"><a href="#" class="menu__link">Масиви</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="main__container container">
+            <h1 class="main__title title">Вітаємо на сайті!</h1>
+            <p class="main__text text">Ви завітали до нас <span id="visit-count">0</span> разів.</p>
+            <button id="reset-btn" class="btn">Очистити історію відвідувань</button>
+        </div>
+
+        <!-- 2 In Body -->
+        <!-- <script>
+            let a = 5;
+            console.log(a);
+        </script> -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav class="footer__col">
+                <ul class="footer__nav-list">
+                    <li><a href="#" class="footer__nav__link">Основи JavaScript</a></li>
+
+                </ul>
+            </nav>
+            <div class="footer__col footer__col--social">
+                <h3 class="footer__col-title">Social Media</h3>
+                <ul class="footer__list_icons">
+                    <li class="footer__list__item"><a href="https://www.facebook.com/profile.php?id=100030133403496" class="footer__link">
+                            <svg width="9" height="20" class="footer__icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-facebook"></use>
+                            </svg>
+                        </a></li>
+                    <li class="footer__list__item"><a href="#" class="footer__link"><svg width="18" height="15"
+                                class="footer__icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-twitter"></use>
+                            </svg></a></li>
+                    <li class="footer__list__item"><a href="#" class="footer__link"><svg width="16" height="16"
+                                class="footer__icon">
+                                <use xlink:href="./assets/img/svg/sprite.svg#icon-instagram"></use>
+                            </svg></a></li>
+                </ul>
+            </div>
+            <small class="footer__copyright">
+                &copy; RINA™, 2026. All rights reserved.
+            </small>
+        </div>
+    </footer>
+    <!-- 3 Before <body> -->
+    <script type="module" src="./js/main_24.js"></script>
+</body>
+
+</html>

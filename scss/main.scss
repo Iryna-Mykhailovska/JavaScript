@@ -1,0 +1,522 @@
+@use 'vars' as v;
+@use 'mixins' as m;
+@import 'extend';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html,
+body {
+    font-family: v.$font-family;
+    font-size: v.$font_size;
+
+    @media screen and (max-width:992px) {
+        font-size: v.$font_size_tablet;
+
+    }
+
+    @media screen and (max-width:576px) {
+        font-size: v.$font_size_mobile;
+
+    }
+}
+
+.container {
+    max-width: v.$container_width;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    @media screen and (max-width:992px) {
+        max-width: v.$container_width_tablet;
+    }
+
+    @media screen and (max-width:576px) {
+        max-width: v.$container_width_mobile;
+    }
+}
+
+.header {
+    padding: 20px 0;
+
+    &__body {
+        @include m.flex(space-between, center);
+    }
+}
+
+.logo {
+    display: inline-block;
+    transition: transform 0.3s ease;
+
+    &__icon {
+        width: 45px;
+        height: 35px;
+        --trans-small: translateX(0);
+        --trans-big: translateX(0);
+        --color1: #9c69e2;
+        --color2: #f063b8;
+
+        .path-small,
+        .path-big {
+            transform-box: fill-box;
+            transform-origin: center;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+        cursor: url('../assets/img/cursor.png'), pointer;
+
+        .logo__icon {
+            --color1: #f063b8;
+            --color2: #9c69e2;
+
+            --trans-small: translateX(24px);
+            --trans-big: translateX(-24px);
+        }
+    }
+}
+
+.nav {
+    flex-grow: 1;
+
+    @media screen and (max-width:768px) {
+        order: 2;
+        flex-grow: 0;
+    }
+
+}
+
+.menu {
+    @include m.flex(flex-start, center);
+    gap: 2.6vw;
+    padding-left: 120px;
+
+    @media screen and (max-width:768px) {
+        position: absolute;
+        right: 0;
+        top: 100px;
+        opacity: 0;
+        flex-direction: column;
+        background-color: v.$colors-violet;
+        padding: 0 0;
+        transition: all 0.5s;
+        width: 100%;
+        gap: 0;
+        opacity: 0;
+        z-index: 999;
+    }
+
+    &__item {
+        @media screen and (max-width: 768px) {
+            padding: 10px 0;
+            border-bottom: 1px solid v.$text-white;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    &__link {
+        @include m.font_title(1rem, 1.6, 500);
+        color: v.$text-gray-dark;
+        position: relative;
+
+        @media screen and (max-width:768px) {
+            color: v.$colors-violet-light;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: -10px;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background-color: v.$colors-violet-middle;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+
+        &:hover,
+        &:focus {
+            color: v.$colors-violet-middle;
+            cursor: url('../assets/img/cursor.png'), pointer;
+
+            &::after {
+                background-color: v.$colors-violet-middle;
+                opacity: 1;
+                width: 75%;
+                left: 50%;
+            }
+        }
+    }
+}
+
+.burger {
+    display: none;
+
+    @media screen and (max-width:768px) {
+        &:checked~.menu {
+            opacity: 1;
+            right: 0;
+        }
+
+        &:checked~.burger__img {
+            transform: rotate(587deg);
+            transition: all 0.4s;
+
+            &::before {
+                opacity: 0;
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    &__img {
+        display: none;
+        cursor: pointer;
+
+        @media screen and (max-width:768px) {
+            display: inline-block;
+            position: relative;
+            top: -3px;
+            width: 34px;
+            height: 2px;
+            background-color: v.$colors-violet;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: v.$colors-violet;
+                top: 10px;
+            }
+
+            &::after {
+                top: -10px;
+            }
+
+        }
+    }
+}
+
+.btn {
+    @extend %btn-base;
+    color: v.$text-violet-dark;
+    font-size: 1rem;
+    border: 1px solid v.$colors-violet;
+    padding: 16px 23px;
+    border-radius: 50px;
+    background-color: v.$text-white;
+
+    @media screen and (max-width:992px) {
+        padding: 14px 20px;
+
+    }
+
+    @media screen and (max-width:576px) {
+        padding: 8px 12px;
+    }
+
+    &__icon {
+        stroke: v.$colors-violet;
+        fill: none;
+    }
+
+    &:hover,
+    &:focus {
+        @extend %btn-elevation;
+        color: v.$text-white;
+        background-color: v.$colors-violet;
+    }
+
+    &:hover .btn__icon,
+    &:focus .btn__icon {
+        stroke: v.$text-white;
+    }
+
+    &--pink {
+        color: v.$text-white;
+        background: v.$colors-pink;
+        border: none;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+            background: v.$colors-pink-middle;
+        }
+    }
+}
+
+.title {
+    font-family: v.$second-family;
+    vertical-align: middle;
+    color: v.$colors-pink;
+}
+
+.text {
+    font-family: v.$font-family;
+    color: v.$colors-violet-light;
+    @include m.font_title(1.125rem, 1.6, 500);
+}
+
+.main {
+    &__container {
+        background: url('../assets/img/bg_main.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 60vh;
+        border-radius: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    &__title,
+    &__text {
+        // padding-bottom: 20px;
+        padding-top: 20px;
+    }
+
+}
+
+.footer {
+    padding: 120px 0;
+
+    @media screen and (max-width:992px) {
+        padding: 0;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    @media screen and (max-width:576px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    &__heading {
+        @include m.flex(space-between, center);
+        margin-bottom: 100px;
+
+        @media screen and (max-width:992px) {
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        @media screen and (max-width:576px) {
+            margin-bottom: 30px;
+        }
+    }
+
+    &__title {
+        @include m.font_title(2.5rem, 1.3, 700);
+        margin-bottom: 20px;
+
+        @media screen and (max-width:992px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__subtitle {
+        @include m.font_title(1.125rem, 1.6, 500);
+        color: v.$text-gray-dark ;
+    }
+
+    &__actions {
+        @include m.flex(space-between, center);
+        gap: 30px;
+
+        @media screen and (max-width:992px) {
+            gap: 15px;
+        }
+    }
+
+    &__main {
+        @include m.flex(space-between, baseline);
+        flex-wrap: wrap;
+        margin-bottom: 100px;
+
+        @media screen and (max-width:992px) {
+            margin-bottom: 70px;
+        }
+
+        @media screen and (max-width:576px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            // text-align: center;
+        }
+    }
+
+    &__logo_wrapper {
+        @include m.flex(flex-start, center);
+        gap: 20px;
+        margin-bottom: 60px;
+
+        @media screen and (max-width:992px) {
+            margin-bottom: 40px;
+        }
+
+        @media screen and (max-width:576px) {
+            margin-bottom: 20px;
+        }
+
+    }
+
+    &__brand-name {
+        @include m.font_title(1.25rem, 1.6, 600);
+    }
+
+    &__address {
+        max-width: 300px;
+        font-style: normal;
+    }
+
+    &__col-title {
+        @include m.font_title(1rem, 1.6, 600);
+        vertical-align: middle;
+        color: v.$text-violet-dark;
+        margin-bottom: 30px;
+
+        @media screen and (max-width:992px) {
+            margin-bottom: 20px;
+        }
+
+        @media screen and (max-width:576px) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__nav__link {
+        color: v.$text-gray-dark;
+
+        &:hover,
+        &:focus {
+            color: v.$colors-violet-middle;
+            cursor: url('../assets/img/cursor.png'), pointer;
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: v.$colors-gray-light;
+        position: relative;
+
+        &:hover,
+        &:focus {
+            cursor: url('../assets/img/cursor.png'), pointer;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        @include m.pos_center(50%, 50%);
+        fill: v.$text-white;
+    }
+
+    &__list {
+        &__item {
+
+            &:nth-child(3n+1):hover,
+            &:nth-child(3n+1):focus {
+                .footer__link {
+                    background: transparent;
+                    border: 1px solid v.$colors-blue-facebook;
+                }
+
+                .footer__icon {
+                    fill: v.$colors-blue-facebook;
+                }
+            }
+
+            &:nth-child(3n+2):hover,
+            &:nth-child(3n+2):focus {
+                .footer__link {
+                    background: transparent;
+                    border: 1px solid v.$colors-blue-twitter;
+                }
+
+                .footer__icon {
+                    fill: v.$colors-blue-twitter;
+                }
+            }
+
+            &:nth-child(3n+3):hover,
+            &:nth-child(3n+3):focus {
+                .footer__link {
+                    background: transparent;
+                    border: 1px solid v.$colors-pink-instagram;
+                }
+
+                .footer__icon {
+                    fill: v.$colors-pink-instagram;
+                }
+            }
+        }
+
+        &_icons {
+            @include m.flex(space-between, center);
+            gap: 15px;
+
+            @media screen and (max-width:992px) {
+                gap: 5px;
+            }
+        }
+    }
+
+    &__copyright {
+        width: 275px;
+        display: inline-block;
+        color: v.$text-violet-dark;
+        @include m.font_title(0.75rem, 1.8, 300, 1%);
+        vertical-align: middle;
+    }
+}
+
+.address {
+    &-info {
+        color: v.$text-violet-dark;
+
+        &__text {
+            @include m.font_title(1rem, 1.8, 500, 1%);
+            margin-bottom: 10px;
+        }
+
+        &__link {
+            color: v.$text-violet-dark;
+            @include m.font_title(1rem, 1.8, 400, 1%);
+            margin-bottom: 10px;
+
+            &:hover,
+            &:focus {
+                cursor: url('../assets/img/cursor.png'), pointer;
+                color: v.$colors-violet-middle;
+            }
+        }
+    }
+}
