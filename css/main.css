@@ -202,6 +202,10 @@ body {
   left: 50%;
 }
 
+.active__link {
+  color: #8a40ee;
+}
+
 .burger {
   display: none;
 }
