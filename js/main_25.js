@@ -42,18 +42,17 @@ if (money) {
 наперед. Для вирішення 
 завдання тобі знадобиться оператор % (залишок від ділення).*/
 let threeNumber = prompt("Введіть тризначне число:");
-// let strThreeNumber = String(threeNumber);
-// let reversedStr = strThreeNumber.split('').reverse().join('');
+
+// let reversedStr = threeNumber.split('').reverse().join('');
 // reversedStr = Number(reversedStr);
 // console.log(`Число задом наперед: ${reversedStr}`);
 // alert(`Число задом наперед: ${reversedStr}`);
 if (threeNumber) {
-    let reversedNumber = 0;
-    while (threeNumber > 0) {
-        let digit = threeNumber % 10;
-        reversedNumber = reversedNumber * 10 + digit;
-        threeNumber = Math.floor(threeNumber / 10);
-    }
+    threeNumber=parseInt(threeNumber);
+    let units = number % 10;// одиниці
+    let tens = Math.floor((number % 100) / 10); // десятки
+    let hundreds = Math.floor(number / 100); // сотні
+    let reversedNumber = (units * 100) + (tens * 10) + hundreds;
     console.log(`Число задом наперед: ${reversedNumber}`);
     alert(`Число задом наперед: ${reversedNumber}`);
 } else console.log('Користувач не ввів тризначне число');
@@ -61,7 +60,13 @@ if (threeNumber) {
 // ========================================
 /*Користувач вводить суму вкладу в банк на 2 місяці, з процентною
 ставкою депозиту 5% річних. Вивести суму нарахованих відсотків.*/
-
+let depositAmount = prompt("Вкажіть суму вкладу в банк:");
+if (depositAmount) {
+    let annualInterestRate = 0.05;
+    let interestForTwoMonths = (depositAmount * annualInterestRate * 2) / 12;
+    console.log(`Сума нарахованих відсотків за 2 місяці: ${interestForTwoMonths.toFixed(2)}`);
+    alert(`Сума нарахованих відсотків за 2 місяці: ${interestForTwoMonths.toFixed(2)}`);
+} else console.log('Користувач не ввів суму вкладу в банк');
 
 
 // ========================================
@@ -71,3 +76,6 @@ if (threeNumber) {
  2 || 0 || 3
 
 2 && 0 || 3 */
+console.log(2 && 0 && 3); // 0
+console.log(2 || 0 || 3); // 2
+console.log(2 && 0 || 3); // 3  
