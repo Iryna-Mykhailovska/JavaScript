@@ -49,9 +49,9 @@ let threeNumber = prompt("Введіть тризначне число:");
 // alert(`Число задом наперед: ${reversedStr}`);
 if (threeNumber) {
     threeNumber=parseInt(threeNumber);
-    let units = number % 10;// одиниці
-    let tens = Math.floor((number % 100) / 10); // десятки
-    let hundreds = Math.floor(number / 100); // сотні
+    let units = threeNumber % 10;// одиниці
+    let tens = Math.floor((threeNumber % 100) / 10); // десятки
+    let hundreds = Math.floor(threeNumber / 100); // сотні
     let reversedNumber = (units * 100) + (tens * 10) + hundreds;
     console.log(`Число задом наперед: ${reversedNumber}`);
     alert(`Число задом наперед: ${reversedNumber}`);
