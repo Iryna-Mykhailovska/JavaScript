@@ -57,6 +57,11 @@ ol {
   padding: 30px;
 }
 
+.listFoods {
+  color: rgba(216, 118, 177, 0.7019607843);
+  padding-left: 15px;
+}
+
 a {
   text-decoration: none;
 }
