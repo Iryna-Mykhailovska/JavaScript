@@ -57,18 +57,29 @@ let shoppingList = [
         }
     },
 ];
-shoppingList[0].total;
-console.log(shoppingList[0].total);
+// shoppingList[0].total;
+// console.log(shoppingList[0].total);
 
 // shoppingList.forEach(item => {
 //     item.total = item.quantity * item.price;
 // });
 function displayShoppingList(list) {
-    const notPurchased = list.filter(item => !item.purchased);
-    const purchased = list.filter(item => item.purchased);
+    const notPurchased = list.filter(item => !item.purchased);//те, що не купили
+    const purchased = list.filter(item => item.purchased);//те, що купили
     // const sortedList = [...notPurchased, ...purchased];
     console.log(notPurchased);
     console.log(purchased);
 }
 displayShoppingList(shoppingList);
-// function purchaseProduct(list, productName) {
+function purchaseProduct(list, productName) {
+    const product = list.find(item => item.name === productName);
+    if (product) {
+        product.purchased = true;
+        console.log(`Продукт "${productName}" відзначено як придбаний.`);
+    } else {
+        console.log(`Продукт "${productName}" не знайдено в списку.`);
+    }
+}
+purchaseProduct(shoppingList, 'eggs');
+displayShoppingList(shoppingList);
+purchaseProduct(shoppingList, 'meat');
