@@ -11,11 +11,15 @@
 
 ul,
 ol {
-    list-style: none;
+  list-style: none;
     margin: 0;
     padding: 0;
 }
-
+.listSongs{
+    list-style-type: decimal;
+    color: #f063b8;
+    padding: 30px;
+}
 a {
     text-decoration: none;
 }

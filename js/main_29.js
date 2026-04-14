@@ -110,3 +110,12 @@ addProduct(shoppingList, { name: 'bread', quantity: 1, purchased: false, price: 
 addProduct(shoppingList, { name: 'meat', quantity: 2, purchased: false, price: 150 });
 addProduct(shoppingList, { name: 'cake', quantity: 1, purchased: false, price: 320 });
 displayShoppingList(shoppingList);  
+/*Підрахунок суми всіх продуктів (враховуючи кількість кожного) в списку.
+Підрахунок суми всіх (не) придбаних продуктів.
+Показання продуктів в залежності від суми, (від більшого до меншого / від меншого до більшого, 
+в залежності від параметра функції, який вона приймає)*/
+
+function calculateTotal(list) {
+    const total = list.reduce((sum, item) => sum + item.total, 0);
+    console.log(`Загальна сума всіх продуктів: ${total.toFixed(2)} грн.`);
+}
