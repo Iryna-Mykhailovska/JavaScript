@@ -62,6 +62,11 @@ ol {
   padding-left: 15px;
 }
 
+.output_Text {
+  color: rgba(157, 185, 29, 0.7019607843);
+  padding-left: 15px;
+}
+
 a {
   text-decoration: none;
 }
