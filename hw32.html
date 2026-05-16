@@ -12,15 +12,14 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.webp">
-    <title>JavaScript in BEETROOT</title>
-
+    <title>jQuery та плагінами Slick Slider/Swiper</title>
 </head>
 
 <body>
     <header class="header">
         <div class="header__container container">
             <div class="header__body">
-                <a href="#" class="header__logo logo">
+                <a href="./index.html" class="header__logo logo">
                     <svg width="45" height="35" class="logo__icon">
                         <use xlink:href="./assets/img/svg/sprite.svg#icon-logo"></use>
                     </svg>
@@ -29,12 +28,9 @@
                     <input type="checkbox" id="nav-burger" class="nav__burger burger">
                     <label for="nav-burger" class="burger__img"></label>
                     <ul class="header__menu menu">
-                        <li class="menu__item"><a href="./hw24.html" class="menu__link">Основи JavaScript</a></li>
-                        <li class="menu__item"><a href="./hw25.html" class="menu__link">Типи даних та оператори</a></li>
-                        <li class="menu__item"><a href="./hw26.html" class="menu__link">Цикли й умови</a></li>
-                        <li class="menu__item"><a href="./hw27.html" class="menu__link">Функції</a></li>
-                        <li class="menu__item"><a href="./hw28.html" class="menu__link">Об'єкти</a></li>
-                        <li class="menu__item"><a href="./hw29.html" class="menu__link">Масиви</a></li>
+                        <li class="menu__item"><a href="./hw30.html" class="menu__link">DOM</a></li>
+                        <li class="menu__item"><a href="./hw31.html" class="menu__link">Події</a></li>
+                        <li class="menu__item"><a href="https://iryna-mykhailovska.github.io/OnWave/" class="menu__link active__link">jQuery</a></li>
                     </ul>
                 </nav>
             </div>
@@ -42,8 +38,11 @@
     </header>
     <main class="main-content">
         <div class="main__container container">
+            <section id="section__Output">
 
+            </section>
 
+                       
         </div>
     </main>
 
@@ -51,12 +50,18 @@
         <div class="container">
             <nav class="footer__col">
                 <ul class="footer__nav-list menu">
-                    <li><a href="./hw30.html" class="footer__nav__link">DOM</a></li>
-                    <li><a href="./hw31.html" class="footer__nav__link">Події</a></li>
-                    <li><a href="./hw32.html" class="footer__nav__link">Query</a></li>
+                    <li><a href="./index.html" class="footer__nav__link">Основи JavaScript</a></li>
+                    <li><a href="./hw25.html" class="footer__nav__link">Типи даних та оператори</a></li>
+                    <li><a href="./hw26.html" class="footer__nav__link">Цикли й умови</a></li>
+                    <li><a href="./hw27.html" class="footer__nav__link">Функції</a></li>
+                    <li><a href="./hw28.html" class="footer__nav__link">Об'єкти</a></li>
+                    <li><a href="./hw29.html" class="footer__nav__link">Масиви</a></li>
 
                 </ul>
             </nav>
+            <section id="section__Output">
+
+            </section>
             <div class="footer__col footer__col--social">
                 <h3 class="footer__col-title">Social Media</h3>
                 <ul class="footer__list_icons">
@@ -81,7 +86,8 @@
             </small>
         </div>
     </footer>
-    <script type="module" src="./js/main.js"></script>
+    <!-- 3 Before <body> -->
+    <script type="module" src="./js/main_32.js"></script>
 </body>
 
 </html>
